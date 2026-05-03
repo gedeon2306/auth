@@ -2,7 +2,7 @@
 
 Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et Supabase PostgreSQL.
 
-## 🚀 Fonctionnalités
+## Fonctionnalités
 
 - **Authentification OAuth** via Google et GitHub
 - **Base de données PostgreSQL** avec Supabase
@@ -13,7 +13,7 @@ Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et S
 - **TypeScript** pour la sécurité du code
 - **Tailwind CSS** pour le styling
 
-## 🛠️ Stack Technique
+## Stack Technique
 
 - **Framework**: Next.js 16.2.4 (App Router)
 - **Authentification**: NextAuth.js 4.24.14
@@ -23,13 +23,13 @@ Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et S
 - **Icons**: React Icons 5.6.0
 - **Langage**: TypeScript 5
 
-## 📋 Prérequis
+## Prérequis
 
 - Node.js 18+ installé
 - Compte Supabase avec base de données PostgreSQL
 - OAuth applications Google et GitHub configurées
 
-## 🚀 Installation
+## Installation
 
 1. **Cloner le projet**
    ```bash
@@ -78,7 +78,7 @@ Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et S
 
    Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-## 🗄️ Structure de la Base de Données
+## Structure de la Base de Données
 
 Le schéma Prisma inclut 4 tables principales :
 
@@ -87,7 +87,7 @@ Le schéma Prisma inclut 4 tables principales :
 - **Session**: Sessions actives des utilisateurs
 - **VerificationToken**: Tokens de vérification email
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 auth/
@@ -104,7 +104,7 @@ auth/
 └── public/                        # Assets statiques
 ```
 
-## 🔐 Configuration OAuth
+## Configuration OAuth
 
 ### Google OAuth
 1. Allez sur [Google Cloud Console](https://console.cloud.google.com/)
@@ -118,7 +118,7 @@ auth/
 2. Créez une nouvelle OAuth App
 3. Ajoutez `http://localhost:3000/api/auth/callback/github` comme Authorization callback URL
 
-## 🎨 Pages de l'Application
+## Pages de l'Application
 
 ### Page de Connexion (`/`)
 - Interface moderne avec design sombre
@@ -131,7 +131,7 @@ auth/
 - Badge indiquant le provider OAuth
 - Bouton de déconnexion
 
-## 🚀 Déploiement
+## Déploiement
 
 ### Vercel (Recommandé)
 ```bash
@@ -146,7 +146,7 @@ Assurez-vous de configurer :
 - `DATABASE_URL` avec votre BDD PostgreSQL
 - Les clés OAuth des providers
 
-## 🔧 Commandes Utiles
+## Commandes Utiles
 
 ```bash
 # Développement
@@ -171,7 +171,7 @@ npx prisma db push
 npx prisma studio
 ```
 
-## 📝 Notes de Développement
+## Notes de Développement
 
 - L'application utilise le **App Router** de Next.js 13+
 - Les sessions sont gérées automatiquement par NextAuth avec Prisma Adapter
@@ -179,6 +179,6 @@ npx prisma studio
 - Les composants sont écrits en **TypeScript** pour la sécurité du type
 - La navigation côté client utilise `next/navigation` et `next-auth/react`
 
-## 🤝 Contribuer
+## Contribuer
 
 N'hésitez pas à ouvrir une issue ou soumettre une pull request pour améliorer ce projet.
