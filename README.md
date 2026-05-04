@@ -1,6 +1,6 @@
 # Auth - OAuth avec NextAuth + Prisma + Supabase
 
-Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et Supabase PostgreSQL.
+Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et Supabase PostgreSQL. Projet d'apprentissage full-stack démontrant l'intégration complète de l'authentification OAuth avec une base de données PostgreSQL.
 
 ## Fonctionnalités
 
@@ -25,9 +25,12 @@ Application d'authentification moderne avec Next.js 16, NextAuth.js, Prisma et S
 
 ## Prérequis
 
-- Node.js 18+ installé
-- Compte Supabase avec base de données PostgreSQL
-- OAuth applications Google et GitHub configurées
+### Avant de commencer
+- **Node.js 18+** installé sur votre machine
+- **npm** ou **yarn** comme gestionnaire de paquets
+- **Compte Supabase** avec base de données PostgreSQL
+- **OAuth applications** Google et GitHub configurées
+- **Git** pour cloner le repository
 
 ## Installation
 
@@ -181,4 +184,28 @@ npx prisma studio
 
 ## Contribuer
 
-N'hésitez pas à ouvrir une issue ou soumettre une pull request pour améliorer ce projet.
+### Comment contribuer
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/AmazingFeature`)
+3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+### Guidelines
+- Respectez la convention de nommage existante
+- Ajoutez des commentaires si nécessaire
+- Testez vos modifications avant de soumettre
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## Contact
+
+Pour toute question ou suggestion, n'hésitez pas à contacter :
+- Créateur du projet
+- Ouvrir une issue sur GitHub
+
+---
+
+**Réalisé avecNext.js, NextAuth.js, Prisma et Supabase**
