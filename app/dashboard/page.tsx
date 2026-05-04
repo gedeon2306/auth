@@ -1,21 +1,35 @@
-// app/dashboard/page.tsx
 'use client'
 
+import { useState, useEffect } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import { FaGithub, FaSignOutAlt, FaEnvelope, FaUser } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 
 export default function DashboardPage() {
   const { data: session, status } = useSession()
   const router = useRouter()
+  const [loggingOut, setLoggingOut] = useState(false)
 
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/')
     }
   }, [status, router])
+
+  const handleSignOut = async () => {
+    setLoggingOut(true)
+    await signOut({ callbackUrl: '/' })
+  }
+
+  const Spinner = ({ color = '#e05a5a', size = 14 }: { color?: string; size?: number }) => (
+    <div style={{
+      width: `${size}px`, height: `${size}px`, borderRadius: '50%', flexShrink: 0,
+      border: `2px solid ${color}25`,
+      borderTop: `2px solid ${color}`,
+      animation: 'spin 0.7s linear infinite',
+    }} />
+  )
 
   if (status === 'loading') {
     return (
@@ -24,7 +38,15 @@ export default function DashboardPage() {
         alignItems: 'center', justifyContent: 'center',
         background: '#0f0f0f',
       }}>
-        <p style={{ color: '#555', fontFamily: 'system-ui' }}>Chargement...</p>
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Spinner color="#6366f1" size={32} />
+          </div>
+          <p style={{ color: '#555', fontSize: '14px', marginTop: '16px', fontFamily: 'system-ui' }}>
+            Chargement...
+          </p>
+        </div>
       </main>
     )
   }
@@ -40,6 +62,8 @@ export default function DashboardPage() {
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       padding: '24px', fontFamily: 'system-ui, sans-serif',
     }}>
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+
       <div style={{ width: '100%', maxWidth: '480px' }}>
 
         {/* Header carte */}
@@ -81,6 +105,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
+          {/* Nom */}
           <div>
             <p style={{
               color: '#f5f5f5', fontSize: '20px',
@@ -117,8 +142,8 @@ export default function DashboardPage() {
               </div>
               <div>
                 <p style={{
-                  color: '#555', fontSize: '11px',
-                  margin: '0 0 2px', textTransform: 'uppercase', letterSpacing: '0.5px',
+                  color: '#555', fontSize: '11px', margin: '0 0 2px',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
                 }}>
                   {item.label}
                 </p>
@@ -130,20 +155,26 @@ export default function DashboardPage() {
           ))}
         </div>
 
-        {/* Déconnexion */}
+        {/* Bouton déconnexion */}
         <button
-          onClick={() => signOut({ callbackUrl: '/' })}
+          onClick={handleSignOut}
+          disabled={loggingOut}
           style={{
             width: '100%', padding: '14px',
             background: 'transparent', border: '1px solid #3a1a1a',
-            borderRadius: '12px', cursor: 'pointer',
+            borderRadius: '12px', cursor: loggingOut ? 'not-allowed' : 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             gap: '8px', color: '#e05a5a', fontSize: '14px', fontWeight: '500',
+            opacity: loggingOut ? 0.7 : 1, transition: 'opacity 0.2s',
           }}
         >
-          <FaSignOutAlt size={14} />
-          Se déconnecter
+          {loggingOut
+            ? <Spinner color="#e05a5a" size={14} />
+            : <FaSignOutAlt size={14} />
+          }
+          {loggingOut ? 'Déconnexion...' : 'Se déconnecter'}
         </button>
+
       </div>
     </main>
   )
