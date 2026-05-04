@@ -14,9 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Auth',
-  description: 'OAuth avec NextAuth + Prisma + Supabase',
-}
+  title: "Auth — Système d'authentification",
+  description: "Système d'authentification avec OAuth Google et GitHub.",
+  manifest: "/manifest.json",
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "Auth" },
+};
+
+export const viewport = {
+  themeColor: "#0f0f0f",
+};
 
 export default function RootLayout({
   children,
