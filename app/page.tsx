@@ -12,7 +12,6 @@ export default function LoginPage() {
   const handleSignIn = async (provider: string) => {
     setLoadingProvider(provider)
     await signIn(provider, { callbackUrl: '/dashboard' })
-    // pas besoin de reset — la page va changer
   }
 
   const Spinner = ({ color = '#1a1a1a' }: { color?: string }) => (
